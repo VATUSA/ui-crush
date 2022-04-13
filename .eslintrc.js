@@ -17,7 +17,7 @@ module.exports = {
 		'no-tabs': [2, { allowIndentationTabs: true }],
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
-		indent: [2, 'tab'],
+		indent: [0],
 		// Quotes should be singles unless very specific circumstances are met.
 		quotes: [2, 'single', { allowTemplateLiterals: true }],
 		// Format stuffs
@@ -26,5 +26,6 @@ module.exports = {
 		'react/react-in-jsx-scope': [0],
 		'react/function-component-definition': [0],
 		'react/jsx-props-no-spreading': [0],
+		'react/require-default-props': [0],
 	},
 };
