@@ -22,6 +22,7 @@ module.exports = {
 		quotes: [2, 'single', { allowTemplateLiterals: true }],
 		// Format stuffs
 		'arrow-body-style': [2, 'as-needed'],
+		'max-len': [0],
 		// React
 		'react/react-in-jsx-scope': [0],
 		'react/function-component-definition': [0],
