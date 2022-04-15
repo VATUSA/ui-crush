@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { useAppSettingsContext } from '../context/AppSettings';
 
 interface IProps {
-	children: React.ReactChild
+	children: React.ReactNode
 }
 
 const Master = ({ children }: IProps) => {
@@ -18,9 +19,12 @@ const Master = ({ children }: IProps) => {
 	}, [state.colorMode]);
 
 	return (
-		<div className="min-h-screen dark:text-white bg-gradient-to-b from-vatusa-sky-300 to-vatusa-sky-100 dark:from-vatusa-blue-700 dark:to-[#29080C]">
+		<div className="min-h-screen flex flex-col dark:text-white bg-slate-100 dark:bg-slate-900">
 			<Header />
-			{children}
+			<div className="flex-1">
+				{children}
+			</div>
+			<Footer />
 		</div>
 	);
 };
