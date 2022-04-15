@@ -12,7 +12,7 @@ const Header = () => {
 	return (
 		<header>
 			<div className="bg-slate-100 dark:bg-slate-900">
-				<div className="container mx-auto flex items-center p-4">
+				<div className="max-w-screen-fullhd mx-auto flex items-center p-4">
 					<div className="relative h-16 w-60">
 						<Image src={logo} alt="" layout="fill" objectFit="cover" />
 					</div>
