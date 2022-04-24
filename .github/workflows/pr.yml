@@ -2,6 +2,7 @@ name: Pull Request
 on: pull_request
 jobs:
   lint:
+    name: Lint with ESLint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,6 +11,7 @@ jobs:
       - name: Lint code
         run: npm run lint
   test:
+    name: Test with Jest/RTL
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
