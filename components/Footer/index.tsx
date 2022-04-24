@@ -7,10 +7,9 @@ const Footer = () => {
 		styles.trans_flag,
 	];
 
-	console.log(styles);
 	return (
 		<footer>
-			<div className="bg-slate-200">
+			<div className="bg-slate-200 dark:bg-slate-800">
 				<div className="max-w-screen-fullhd mx-auto p-4 text-sm">
 					<p>
 						Copyright &copy;
@@ -25,7 +24,7 @@ const Footer = () => {
 					<div className="mt-4">
 						<div className="flex space-x-1">
 							{flags.map((flag) => (
-								<div key={flag} className={`h-4 w-6 ${flag}`} />
+								<div data-testid={flag} key={flag} className={`h-4 w-6 ${flag}`} />
 							))}
 						</div>
 						<p className="mt-1">
