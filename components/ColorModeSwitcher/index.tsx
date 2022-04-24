@@ -16,7 +16,7 @@ const ColorModeSwitcher = () => {
 	};
 
 	return (
-		<button onClick={toggleColorMode} type="button">
+		<button onClick={toggleColorMode} type="button" className={state.colorMode}>
 			{state.colorMode === 'light' ? <MdWbSunny className="h-8 w-8" /> : <MdModeNight className="h-8 w-8" />}
 		</button>
 	);
