@@ -26,9 +26,9 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/$GHA_REPO_OWNER/$GHA_REPO_NAME:${{ github.sha }}
-            ghcr.io/$GHA_REPO_OWNER/$GHA_REPO_NAME:develop
-            ghcr.io/$GHA_REPO_OWNER/$GHA_REPO_NAME:latest
+            ghcr.io/${{ env.GHA_REPO_OWNER }}/${{ env.GHA_REPO_NAME }}:${{ github.sha }}
+            ghcr.io/${{ env.GHA_REPO_OWNER }}/${{ env.GHA_REPO_NAME }}:develop
+            ghcr.io/${{ env.GHA_REPO_OWNER }}/${{ env.GHA_REPO_NAME }}:latest
   deploy-docker-image:
     name: Deploy Docker Image
     needs: build-docker-image
