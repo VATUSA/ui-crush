@@ -1,10 +1,11 @@
-## Build dependencies
+## Install dependencies
 FROM node:16-alpine as deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package*.json .
 RUN npm ci
 
+# Build the application
 FROM node:16-alpine as builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -12,6 +13,7 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=true
 RUN npm run build
 
+# Serve the application
 FROM node:16-alpine as app
 WORKDIR /app
 ENV NODE_ENV production
