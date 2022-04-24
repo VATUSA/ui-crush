@@ -4,10 +4,19 @@ module.exports = {
 		'airbnb',
 		'airbnb-typescript',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:jest/recommended',
 	],
 	parserOptions: {
 		project: './tsconfig.json',
 	},
+	overrides: [
+		{
+			files: ['*.test.js', '*.test.jsx'],
+			env: {
+				jest: true,
+			},
+		},
+	],
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 1 : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 1 : 'off',
@@ -28,5 +37,6 @@ module.exports = {
 		'react/function-component-definition': [0],
 		'react/jsx-props-no-spreading': [0],
 		'react/require-default-props': [0],
+		'react/prop-types': [0],
 	},
 };
