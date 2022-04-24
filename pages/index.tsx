@@ -14,8 +14,6 @@ interface IProps {
 const Home = ({ events }: IProps) => {
 	useDocumentTitle('Home');
 
-	console.log(events);
-
 	return (
 		<Master>
 			<NextEvent event={events.data[0]} />
