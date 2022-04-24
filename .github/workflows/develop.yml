@@ -28,9 +28,9 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ $IMAGE_REPOSITORY }}:${{ github.sha }}
-            ghcr.io/${{ $IMAGE_REPOSITORY }}:develop
-            ghcr.io/${{ $IMAGE_REPOSITORY }}:latest
+            ghcr.io/{{ env.IMAGE_REPOSITORY }}:${{ github.sha }}
+            ghcr.io/{{ env.IMAGE_REPOSITORY }}:develop
+            ghcr.io/{{ env.IMAGE_REPOSITORY }}:latest
   deploy-docker-image:
     name: Deploy Docker Image
     needs: build-docker-image
@@ -46,6 +46,6 @@ jobs:
       - name: Log into K8s cluster
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 $GHA_K8S_CLUSTER
       - name: Deploy image to cluster
-        run: kubectl set image deployment/$GHA_DEPLOYMENT_NAME $GHA_DEPLOYMENT_NAME=ghcr.io/$IMAGE_REPOSITORY:${{ github.sha }} --record -n $GHA_K8S_NAMESPACE
+        run: kubectl set image deployment/$GHA_DEPLOYMENT_NAME $GHA_DEPLOYMENT_NAME=ghcr.io/{{ env.IMAGE_REPOSITORY }}:${{ github.sha }} --record -n $GHA_K8S_NAMESPACE
       - name: Verify deployment
         run: kubectl rollout status deployment/$GHA_DEPLOYMENT_NAME -n $GHA_K8S_NAMESPACE
